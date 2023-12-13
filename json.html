@@ -31,7 +31,7 @@ ans = 0
 for (let i = 0; i<emps.length ;i++){
 
     LPA =  emps[i]['salary']*12 ;
-    console.log(LPA)
+    console.log(`${emps[i]['name']} The Annual CTC is : ${LPA}`)
 
     if(LPA < 300000){
         tax = 0
@@ -47,7 +47,7 @@ for (let i = 0; i<emps.length ;i++){
     }
     ans = tax;
    
-    console.log(`${emps[i]['name']} your income tax is ${ans}`)
+    console.log(`${emps[i]['name']} your income tax is : ${ans}`)
     // console.log(`salary_of= ${emps[i]['salary']} ,
     //  LPA = ${emps[i]['salary']*12}`)
 
