@@ -1,0 +1,1477 @@
+PS C:\Users\Shree\Desktop\mongosh-2.1.1-win32-x64\bin> ./mongosh "mongodb+srv://cluster0.dslyw.mongodb.net/" --apiVersion 1 --usern
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show collections
+emps
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show dbs;
+alpha          80.00 KiB
+college         8.00 KiB
+company       224.00 KiB
+csi            80.00 KiB
+dma            40.00 KiB
+hari          144.00 KiB
+pankaj          8.00 KiB
+prashant      144.00 KiB
+ritesh         72.00 KiB
+sanket         72.00 KiB
+sankett        72.00 KiB
+shailesh      144.00 KiB
+tcet           40.00 KiB
+tcet2022       88.00 KiB
+tcet2022app2   40.00 KiB
+tcetsep2022    80.00 KiB
+tejas         144.00 KiB
+test           56.00 KiB
+test2           8.00 KiB
+tushar         80.00 KiB
+users          40.00 KiB
+zcompany       40.00 KiB
+admin         336.00 KiB
+local           1.48 GiB
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show collections;
+emps
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db;
+pankaj
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show collections;
+emps
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.find();
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.insertOne({name:"amol"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('657ec51f38113284cbcb85f6')
+}
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.find();
+[ { _id: ObjectId('657ec51f38113284cbcb85f6'), name: 'amol' } ]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.insertOne({name:"bhanu"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('657ec5a438113284cbcb85f7')
+}
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.find();
+[
+  { _id: ObjectId('657ec51f38113284cbcb85f6'), name: 'amol' },
+  { _id: ObjectId('657ec5a438113284cbcb85f7'), name: 'bhanu' }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.insertOne({name:"chaitali",age:24})
+{
+  acknowledged: true,
+  insertedId: ObjectId('657ec5d338113284cbcb85f8')
+}
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps.find();
+[
+  { _id: ObjectId('657ec51f38113284cbcb85f6'), name: 'amol' },
+  { _id: ObjectId('657ec5a438113284cbcb85f7'), name: 'bhanu' },
+  {
+    _id: ObjectId('657ec5d338113284cbcb85f8'),
+    name: 'chaitali',
+    age: 24
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show dbs;
+alpha          80.00 KiB
+college         8.00 KiB
+company       224.00 KiB
+csi            80.00 KiB
+dma            40.00 KiB
+hari          144.00 KiB
+pankaj         72.00 KiB
+prashant      144.00 KiB
+ritesh         72.00 KiB
+sanket         72.00 KiB
+sankett        72.00 KiB
+shailesh      144.00 KiB
+tcet           40.00 KiB
+tcet2022       88.00 KiB
+tcet2022app2   40.00 KiB
+tcetsep2022    80.00 KiB
+tejas         144.00 KiB
+test           56.00 KiB
+test2           8.00 KiB
+tushar         80.00 KiB
+users          40.00 KiB
+zcompany       40.00 KiB
+admin         336.00 KiB
+local           1.48 GiB
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.createCollection("emps2")
+{ ok: 1 }
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> var docs = [{"name":"neha","contact_number":"9833910534","address":"mumbai","salary":30000,
+... "employee_id":98821,"role":"manager"},
+... {"name":"mina","contact_number":"9833918535","address":"thane", "salary":32000,"employee_id":98823,"role":"sales"},
+... {"name":"pankaj","contact_number":"9833910536", "address":"bhopal","salary":48000, "employee_id":98824,"role": "hr"},
+... {"name":"sareena","contact_number":"9833910537","address":"meerut", "salary":45000,"employee_id":98825,"role":"support"},
+... {"name":"pooja","contact_number":"9833910538","address":"delhi","salary":50000,"employee_id":98826,"role":"developer"},
+... {"name":"namita","contact_number":"9833918539","address": "surat", "salary":52000, "employee_id":98820,"role":"sales"},
+... {"name":"sneha","contact_number":"9833910510","address":"baroda","salary":55000, "employee_id":98827,"role":"support"},
+... {"name":"anjali","contact_number":"9833916511", "address":"ahmedabad","salary":60000,"employee_id":98828,"role": "tester"},
+... {"name": "harsha","contact_number":"93910512","address":"mumbai","salary":20000,"employee_id":98829, "role":"operations"},
+... {"name":"varun","contact_number":"9833910512","address":"mehsana","salary":56000,"employee_id":98831,"role": "tester"},
+... {"name":"preeti","contact_number":"9833910513","address":"noida","salary":87000, "employee_id":98832, "role": "developer"},
+... {"name":"madhu","contact_number":"9833918525","address":"bangalore","salary":22000,"employee_id":98833, "role":"sales"}];
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> docs
+[
+  {
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.createCollection("emps2");
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> show collections;
+emps
+emps2
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.insertMany(docs);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('657ecbcd38113284cbcb85f9'),
+    '1': ObjectId('657ecbcd38113284cbcb85fa'),
+    '2': ObjectId('657ecbcd38113284cbcb85fb'),
+    '3': ObjectId('657ecbcd38113284cbcb85fc'),
+    '4': ObjectId('657ecbcd38113284cbcb85fd'),
+    '5': ObjectId('657ecbcd38113284cbcb85fe'),
+    '6': ObjectId('657ecbcd38113284cbcb85ff'),
+    '7': ObjectId('657ecbcd38113284cbcb8600'),
+    '8': ObjectId('657ecbcd38113284cbcb8601'),
+    '9': ObjectId('657ecbcd38113284cbcb8602'),
+    '10': ObjectId('657ecbcd38113284cbcb8603'),
+    '11': ObjectId('657ecbcd38113284cbcb8604')
+  }
+}
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> docs
+[
+  {
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find();
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8601'),
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({},{_id:0, name:1, address:1,salary:1})
+[
+  { name: 'neha', address: 'mumbai', salary: 30000 },
+  { name: 'mina', address: 'thane', salary: 32000 },
+  { name: 'pankaj', address: 'bhopal', salary: 48000 },
+  { name: 'sareena', address: 'meerut', salary: 45000 },
+  { name: 'pooja', address: 'delhi', salary: 50000 },
+  { name: 'namita', address: 'surat', salary: 52000 },
+  { name: 'sneha', address: 'baroda', salary: 55000 },
+  { name: 'anjali', address: 'ahmedabad', salary: 60000 },
+  { name: 'harsha', address: 'mumbai', salary: 20000 },
+  { name: 'varun', address: 'mehsana', salary: 56000 },
+  { name: 'preeti', address: 'noida', salary: 87000 },
+  { name: 'madhu', address: 'bangalore', salary: 22000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({},{_id:0, name:1, address:1,roles:1})
+[
+  { name: 'neha', address: 'mumbai' },
+  { name: 'mina', address: 'thane' },
+  { name: 'pankaj', address: 'bhopal' },
+  { name: 'sareena', address: 'meerut' },
+  { name: 'pooja', address: 'delhi' },
+  { name: 'namita', address: 'surat' },
+  { name: 'sneha', address: 'baroda' },
+  { name: 'anjali', address: 'ahmedabad' },
+  { name: 'harsha', address: 'mumbai' },
+  { name: 'varun', address: 'mehsana' },
+  { name: 'preeti', address: 'noida' },
+  { name: 'madhu', address: 'bangalore' }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({},{_id:0, name:1, address:1,role:1})
+[
+  { name: 'neha', address: 'mumbai', role: 'manager' },
+  { name: 'mina', address: 'thane', role: 'sales' },
+  { name: 'pankaj', address: 'bhopal', role: 'hr' },
+  { name: 'sareena', address: 'meerut', role: 'support' },
+  { name: 'pooja', address: 'delhi', role: 'developer' },
+  { name: 'namita', address: 'surat', role: 'sales' },
+  { name: 'sneha', address: 'baroda', role: 'support' },
+  { name: 'anjali', address: 'ahmedabad', role: 'tester' },
+  { name: 'harsha', address: 'mumbai', role: 'operations' },
+  { name: 'varun', address: 'mehsana', role: 'tester' },
+  { name: 'preeti', address: 'noida', role: 'developer' },
+  { name: 'madhu', address: 'bangalore', role: 'sales' }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, {_id:0, name:1,salary:1})
+[
+  { name: 'neha', salary: 30000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'harsha', salary: 20000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'preeti', salary: 87000 },
+  { name: 'madhu', salary: 22000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ address:"mumbai"},{_id:0, name:1, address:1,salary:1})
+[
+  { name: 'neha', address: 'mumbai', salary: 30000 },
+  { name: 'harsha', address: 'mumbai', salary: 20000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:50000},{_id:0, name:1, address:1,salary:1})
+[ { name: 'pooja', address: 'delhi', salary: 50000 } ]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary  > 50000},{_id:0, name:1, address:1,salary:1})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:24)
+
+> 1 | db.emps2.find({ salary  > 50000},{_id:0, name:1, address:1,salary:1})
+    |                         ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary :> 50000},{_id:0, name:1, address:1,salary:1})
+Uncaught:
+SyntaxError: Unexpected token (1:24)
+
+> 1 | db.emps2.find({ salary :> 50000},{_id:0, name:1, address:1,salary:1})
+    |                         ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:50000},{_id:0, name:1, address:1,salary:1})
+[ { name: 'pooja', address: 'delhi', salary: 50000 } ]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({},{_id:0, name:1, address:1,salary:1})
+[
+  { name: 'neha', address: 'mumbai', salary: 30000 },
+  { name: 'mina', address: 'thane', salary: 32000 },
+  { name: 'pankaj', address: 'bhopal', salary: 48000 },
+  { name: 'sareena', address: 'meerut', salary: 45000 },
+  { name: 'pooja', address: 'delhi', salary: 50000 },
+  { name: 'namita', address: 'surat', salary: 52000 },
+  { name: 'sneha', address: 'baroda', salary: 55000 },
+  { name: 'anjali', address: 'ahmedabad', salary: 60000 },
+  { name: 'harsha', address: 'mumbai', salary: 20000 },
+  { name: 'varun', address: 'mehsana', salary: 56000 },
+  { name: 'preeti', address: 'noida', salary: 87000 },
+  { name: 'madhu', address: 'bangalore', salary: 22000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:{$in:[50000,60000]}},{_id:0, name:1, address:1,salary:1})
+[
+  { name: 'pooja', address: 'delhi', salary: 50000 },
+  { name: 'anjali', address: 'ahmedabad', salary: 60000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:{$gte:50000}},{_id:0, name:1, address:1,salary:1})
+[
+  { name: 'pooja', address: 'delhi', salary: 50000 },
+  { name: 'namita', address: 'surat', salary: 52000 },
+  { name: 'sneha', address: 'baroda', salary: 55000 },
+  { name: 'anjali', address: 'ahmedabad', salary: 60000 },
+  { name: 'varun', address: 'mehsana', salary: 56000 },
+  { name: 'preeti', address: 'noida', salary: 87000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:{$gte:50000 } , {salary:{$lte:60000}}},{_id:0, name:1, address:1,salary:1})
+Uncaught:
+SyntaxError: Unexpected token (1:39)
+
+> 1 | db.emps2.find({ salary:{$gte:50000 } , {salary:{$lte:60000}}},{_id:0, name:1, address:1,salary:1})
+    |                                        ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({ salary:{$gte:50000 } ,{$lte:60000}},{_id:0, name:1, address:1,salary:1})
+Uncaught:
+SyntaxError: Unexpected token (1:38)
+
+> 1 | db.emps2.find({ salary:{$gte:50000 } ,{$lte:60000}},{_id:0, name:1, address:1,salary:1})
+    |                                       ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({$and : [{salary : {$gt:50000}}, {salary: {$lt: 70000}}]})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({$and : [{salary : {$gt:50000}}, {salary: {$lt: 70000}}]}, {_id:0 , name:1, salary:1})
+[
+  { name: 'namita', salary: 52000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({$and : [{}, {_id:0 , name:1,address:1 })
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:54)
+
+> 1 | db.emps2.find({$and : [{}, {_id:0 , name:1,address:1 })
+    |                                                       ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, {_id:0 , name:1,address:1})
+[
+  { name: 'neha', address: 'mumbai' },
+  { name: 'mina', address: 'thane' },
+  { name: 'pankaj', address: 'bhopal' },
+  { name: 'sareena', address: 'meerut' },
+  { name: 'pooja', address: 'delhi' },
+  { name: 'namita', address: 'surat' },
+  { name: 'sneha', address: 'baroda' },
+  { name: 'anjali', address: 'ahmedabad' },
+  { name: 'harsha', address: 'mumbai' },
+  { name: 'varun', address: 'mehsana' },
+  { name: 'preeti', address: 'noida' },
+  { name: 'madhu', address: 'bangalore' }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.distinct(“address”)
+Uncaught:
+SyntaxError: Unexpected character '“'. (1:18)
+
+> 1 | db.emps2.distinct(“address”)
+    |                   ^
+  2 |
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.distinct('address')
+[
+  'ahmedabad', 'bangalore',
+  'baroda',    'bhopal',
+  'delhi',     'meerut',
+  'mehsana',   'mumbai',
+  'noida',     'surat',
+  'thane'
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find().sort({name: -1})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8601'),
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find().sort({name: 1})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8601'),
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find().sort({name: 1 , salary :1}, {_id:0, name:1,salary:1})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8601'),
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({name: 1 , salary :1});
+[
+  { name: 'anjali', salary: 60000 },
+  { name: 'harsha', salary: 20000 },
+  { name: 'madhu', salary: 22000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'preeti', salary: 87000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'varun', salary: 56000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({name: 1 , salary: -1});
+[
+  { name: 'anjali', salary: 60000 },
+  { name: 'harsha', salary: 20000 },
+  { name: 'madhu', salary: 22000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'preeti', salary: 87000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'varun', salary: 56000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({name: 1},{salary:1});
+[
+  { name: 'anjali', salary: 60000 },
+  { name: 'harsha', salary: 20000 },
+  { name: 'madhu', salary: 22000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'preeti', salary: 87000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'varun', salary: 56000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:1});
+[
+  { name: 'harsha', salary: 20000 },
+  { name: 'madhu', salary: 22000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'preeti', salary: 87000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:-1});
+[
+  { name: 'preeti', salary: 87000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'madhu', salary: 22000 },
+  { name: 'harsha', salary: 20000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:-1}).limit(5);
+[
+  { name: 'preeti', salary: 87000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'namita', salary: 52000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({name:"harsha"})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8601'),
+    name: 'harsha',
+    contact_number: '93910512',
+    address: 'mumbai',
+    salary: 20000,
+    employee_id: 98829,
+    role: 'operations'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.deleteOne({name:"harsha"})
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({name:"harsha"})
+
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find()
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({},{_id:0, name:1,salary:1})
+[
+  { name: 'neha', salary: 30000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'preeti', salary: 87000 },
+  { name: 'madhu', salary: 22000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:-1}).limit(5);
+[
+  { name: 'preeti', salary: 87000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'namita', salary: 52000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:-1});
+[
+  { name: 'preeti', salary: 87000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'neha', salary: 30000 },
+  { name: 'madhu', salary: 22000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find()
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find( {name:"madhu"})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 22000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.updateOne( {name:"madhu"}, {$set:{salary:50000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find( {name:"madhu"})
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 50000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find()
+[
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85f9'),
+    name: 'neha',
+    contact_number: '9833910534',
+    address: 'mumbai',
+    salary: 30000,
+    employee_id: 98821,
+    role: 'manager'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fa'),
+    name: 'mina',
+    contact_number: '9833918535',
+    address: 'thane',
+    salary: 32000,
+    employee_id: 98823,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fb'),
+    name: 'pankaj',
+    contact_number: '9833910536',
+    address: 'bhopal',
+    salary: 48000,
+    employee_id: 98824,
+    role: 'hr'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fc'),
+    name: 'sareena',
+    contact_number: '9833910537',
+    address: 'meerut',
+    salary: 45000,
+    employee_id: 98825,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fd'),
+    name: 'pooja',
+    contact_number: '9833910538',
+    address: 'delhi',
+    salary: 50000,
+    employee_id: 98826,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85fe'),
+    name: 'namita',
+    contact_number: '9833918539',
+    address: 'surat',
+    salary: 52000,
+    employee_id: 98820,
+    role: 'sales'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb85ff'),
+    name: 'sneha',
+    contact_number: '9833910510',
+    address: 'baroda',
+    salary: 55000,
+    employee_id: 98827,
+    role: 'support'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8600'),
+    name: 'anjali',
+    contact_number: '9833916511',
+    address: 'ahmedabad',
+    salary: 60000,
+    employee_id: 98828,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8602'),
+    name: 'varun',
+    contact_number: '9833910512',
+    address: 'mehsana',
+    salary: 56000,
+    employee_id: 98831,
+    role: 'tester'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8603'),
+    name: 'preeti',
+    contact_number: '9833910513',
+    address: 'noida',
+    salary: 87000,
+    employee_id: 98832,
+    role: 'developer'
+  },
+  {
+    _id: ObjectId('657ecbcd38113284cbcb8604'),
+    name: 'madhu',
+    contact_number: '9833918525',
+    address: 'bangalore',
+    salary: 50000,
+    employee_id: 98833,
+    role: 'sales'
+  }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj> db.emps2.find({}, { _id:0,name:1, salary:1}).sort({salary:-1});
+[
+  { name: 'preeti', salary: 87000 },
+  { name: 'anjali', salary: 60000 },
+  { name: 'varun', salary: 56000 },
+  { name: 'sneha', salary: 55000 },
+  { name: 'namita', salary: 52000 },
+  { name: 'pooja', salary: 50000 },
+  { name: 'madhu', salary: 50000 },
+  { name: 'pankaj', salary: 48000 },
+  { name: 'sareena', salary: 45000 },
+  { name: 'mina', salary: 32000 },
+  { name: 'neha', salary: 30000 }
+]
+Atlas atlas-3xk2hf-shard-0 [primary] pankaj>
